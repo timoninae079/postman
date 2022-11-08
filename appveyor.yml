@@ -1,1 +1,17 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/23mlwfcs3o65x5vx?svg=true)](https://ci.appveyor.com/project/timoninae079/postman)
+image: Ubuntu
+
+stack: jdk 11
+
+branches:
+  only:
+    - master
+
+build: off
+
+install:
+
+  - java -jar ./artifacts/app-order.jar &
+  - chmod +x gradlew
+
+build_script:
+  - ./gradlew test --info
